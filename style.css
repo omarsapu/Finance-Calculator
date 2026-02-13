@@ -7,13 +7,13 @@
   --bg-color: azure;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: var(--bg-color);
 }
 
@@ -25,7 +25,7 @@ body{
   text-align: center;
 }
 
-.input-str{
+.input-str {
   width: 20%;
   color: grey;
   padding: 15px;
@@ -35,16 +35,16 @@ body{
 
 .title {
   font-family: monospace;
-  font-size: 16px;
+  font-size: clamp(14px, 4vw, 16px);
   margin: 0;
 }
 
-.title-h1{
+.title-h1 {
   font-size: 24px;
   color: rgb(66, 54, 54);
 }
 
-.title-h2{
+.title-h2 {
   width: 150px;
   font-size: 20px;
 }
@@ -65,7 +65,7 @@ body{
   background-color: var(--grey-color);
 }
 
-.header_container{
+.header_container {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
@@ -75,6 +75,10 @@ body{
 .block {
   display: flex;
   flex-direction: row;
+
+  min-width: max-content;
+  /* Предотвращает перенос, сохраняет исходную ширину */
+  overflow-x: auto;
 }
 
 .width {
@@ -83,31 +87,45 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 8px 5px;
+  flex-shrink: 0;
+  /* Запрещает сжатие элемента */
 }
 
 .block-expen {
-  height: 251px;
+  height: auto;
+  min-height: 200px;
 }
 
 .block-result {
-  height: 28px;
+  height: 30px;
 }
 
 .block-prt {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1;
+  min-width: max-content;
 }
 
 .whattheamout {
   display: flex;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   gap: 5px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 14px;
+  gap: 5px;
 }
 
 .forwhat {
-  width: 250px;
+  width: 200px;
+  text-align: left;
+  padding: 4px 6px;
+  flex-shrink: 0;
   text-align: left;
   padding: 5px;
 }
@@ -116,90 +134,47 @@ body{
   width: 50px;
   text-align: right;
   padding: 5px;
+  flex-shrink: 0;
 }
 
 .result-sum {
   width: 100px;
   text-align: right;
   padding: 5px;
-
+  flex-shrink: 0;
 }
-
 
 
 @media (max-width: 768px) {
-  .header_container {
-    padding-top: 15px;
-    gap: 6px;
+ 
+
+  .block-expen {
+    height: 100px;
   }
 
-  .block {
-    flex-direction: column; /* На мобильных — вертикальное расположение */
+  .block-expen-prt{
+    height: 100px;
+    
   }
 
-  .width {
-    width: 100%; /* На всю ширину на мобильных */
-    margin-right: 0;
-    padding: 10px 5px;
+  .block-result{
+    height: 20px;
   }
 
-  .block-prt {
-    width: 100%;
+  .forwhat{
+    font-size: 12px;
+    height: 20px;
   }
 
-  .whattheamout {
-    gap: 2px;
-    flex-wrap: wrap; /* Перенос элементов при необходимости */
+  .percent{
+    height: 20px;
+    font-size: 12px;
   }
 
-  .forwhat, .percent, .result-sum {
-    width: auto;
-    min-width: 80px;
-    text-align: center;
-    padding: 6px 4px;
+  .result-sum {
+    font-size: 12px;
+    height: 20px;
   }
+
+
 }
-
-@media (max-width: 480px) {
-  .header {
-    padding: 10px 5px;
-  }
-
-  .title {
-    font-size: 16px;
-  }
-
-  .whattheamout {
-    flex-direction: column; /* Вертикальное расположение элементов */
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .forwhat, .percent, .result-sum {
-    text-align: left;
-    width: 100%;
-    padding: 4px 0;
-  }
-
-  /* Убираем фиксированные высоты для лучшей адаптации */
-  .block-expen, .block-dream, .block-invest, .block-result {
-    height: auto;
-    min-height: unset;
-  }
-}
-
-/* Для очень маленьких экранов (320px и меньше) */
-@media (max-width: 360px) {
-  .header_container {
-    gap: 4px;
-  }
-
-  .whattheamout {
-    font-size: 11px;
-  }
-
-  .forwhat, .percent, .result-sum {
-    padding: 3px 0;
-  }
-}
-
