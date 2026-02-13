@@ -146,35 +146,61 @@ body {
 
 
 @media (max-width: 768px) {
- 
+  .header {
+    transform: scale(0.5);
+    transform-origin: top center;
+    width: 200%; /* Компенсирует уменьшение масштаба: 100% / 0.5 = 200% */
+    margin-left: -50%; /* Центрирует элемент после масштабирования */
+  }
+
+  .header_grid {
+    padding-top: 15px; /* Исходное значение / 2 */
+    gap: 5px; /* Исходное значение / 2 */
+  }
+
+  .block {
+    /* Убираем горизонтальный скролл — масштаб уже уменьшил контент */
+    overflow-x: visible;
+  }
+
+  .width {
+    width: 95px; /* 190px / 2 */
+    font-size: 8px; /* 16px / 2 */
+    margin-right: 5px; /* 10px / 2 */
+    padding: 4px 2.5px; /* 8px 5px / 2 */
+  }
 
   .block-expen {
-    height: 100px;
+    height: 121.5px; /* 243px / 2 */
   }
 
-  .block-expen-prt{
-    height: 100px;
-    
+  .block-result {
+    height: 14px; /* 28px / 2 */
   }
 
-  .block-result{
-    height: 20px;
+  .block-prt {
+    gap: 2.5px; /* 5px / 2 */
   }
 
-  .forwhat{
-    font-size: 12px;
-    height: 20px;
+  .whattheamout {
+    font-size: 7px; /* 14px / 2 */
+    gap: 2.5px; /* 5px / 2 */
   }
 
-  .percent{
-    height: 20px;
-    font-size: 12px;
+  .forwhat {
+    width: 125px; /* 250px / 2 */
+    padding: 2.5px; /* 5px / 2 */
+  }
+
+  .percent {
+    width: 25px; /* 50px / 2 */
+    padding: 2.5px; /* 5px / 2 */
   }
 
   .result-sum {
-    font-size: 12px;
-    height: 20px;
+    width: 50px; /* 100px / 2 */
+    padding: 2.5px; /* 5px / 2 */
   }
-
-
 }
+
+
