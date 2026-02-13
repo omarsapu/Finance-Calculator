@@ -173,6 +173,10 @@ body {
     padding: 6.4px 4px; /* 8px 5px × 0.8 */
   }
 
+  .title{
+    font-size: 12px;
+  }
+
   .block-expen {
     height: 194.4px; /* 243px × 0.8 */
   }
@@ -215,6 +219,7 @@ body {
     text-overflow: ellipsis; /* Добавляем многоточие при обрезке */
   }
 }
+
 
 
 
