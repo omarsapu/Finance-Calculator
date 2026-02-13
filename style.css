@@ -147,60 +147,23 @@ body {
 
 @media (max-width: 768px) {
   .header {
-    transform: scale(0.5);
-    transform-origin: top center;
-    width: 200%; /* Компенсирует уменьшение масштаба: 100% / 0.5 = 200% */
-    margin-left: -50%; /* Центрирует элемент после масштабирования */
+    transform: scale(calc(100vw / 1000)); /* Масштабирование пропорционально ширине экрана */
+    transform-origin: top left; /* Точка масштабирования — левый верхний угол */
+    width: calc(1000px * (100vw / 1000)); /* Компенсация ширины после масштабирования */
+    margin-left: calc((100% - (1000px * (100vw / 1000))) / 2); /* Центрирование */
   }
 
-  .header_grid {
-    padding-top: 15px; /* Исходное значение / 2 */
-    gap: 5px; /* Исходное значение / 2 */
-  }
-
-  .block {
-    /* Убираем горизонтальный скролл — масштаб уже уменьшил контент */
-    overflow-x: visible;
-  }
-
-  .width {
-    width: 95px; /* 190px / 2 */
-    font-size: 8px; /* 16px / 2 */
-    margin-right: 5px; /* 10px / 2 */
-    padding: 4px 2.5px; /* 8px 5px / 2 */
-  }
-
-  .block-expen {
-    height: 121.5px; /* 243px / 2 */
-  }
-
-  .block-result {
-    height: 14px; /* 28px / 2 */
-  }
-
-  .block-prt {
-    gap: 2.5px; /* 5px / 2 */
-  }
-
-  .whattheamout {
-    font-size: 7px; /* 14px / 2 */
-    gap: 2.5px; /* 5px / 2 */
-  }
-
-  .forwhat {
-    width: 125px; /* 250px / 2 */
-    padding: 2.5px; /* 5px / 2 */
-  }
-
-  .percent {
-    width: 25px; /* 50px / 2 */
-    padding: 2.5px; /* 5px / 2 */
-  }
-
-  .result-sum {
-    width: 50px; /* 100px / 2 */
-    padding: 2.5px; /* 5px / 2 */
+  /* Запрещаем переносы везде */
+  .whattheamout,
+  .forwhat,
+  .percent,
+  .result-sum,
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
+
 
 
