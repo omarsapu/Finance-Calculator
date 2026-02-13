@@ -122,4 +122,83 @@ body{
   width: 100px;
   text-align: right;
   padding: 5px;
+
+}
+
+
+
+@media (max-width: 768px) {
+  .header_grid {
+    padding-top: 15px;
+    gap: 6px;
+  }
+
+  .block {
+    flex-direction: column; /* На мобильных — вертикальное расположение */
+  }
+
+  .width {
+    width: 100%; /* На всю ширину на мобильных */
+    margin-right: 0;
+    padding: 10px 5px;
+  }
+
+  .block-prt {
+    width: 100%;
+  }
+
+  .whattheamout {
+    gap: 2px;
+    flex-wrap: wrap; /* Перенос элементов при необходимости */
+  }
+
+  .forwhat, .percent, .result-sum {
+    width: auto;
+    min-width: 80px;
+    text-align: center;
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 5px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .whattheamout {
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .forwhat, .percent, .result-sum {
+    text-align: left;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  /* Убираем фиксированные высоты для лучшей адаптации */
+  .block-expen, .block-dream, .block-invest, .block-result {
+    height: auto;
+    min-height: unset;
+  }
+}
+
+/* Для очень маленьких экранов (320px и меньше) */
+@media (max-width: 360px) {
+  .header_grid {
+    gap: 4px;
+  }
+
+  .whattheamout {
+    font-size: 11px;
+  }
+
+  .forwhat, .percent, .result-sum {
+    padding: 3px 0;
+  }
 }
