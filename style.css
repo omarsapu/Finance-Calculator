@@ -146,24 +146,77 @@ body {
 
 
 @media (max-width: 768px) {
-  .header {
-    transform: scale(calc(100vw / 1000)); /* Масштабирование пропорционально ширине экрана */
-    transform-origin: top left; /* Точка масштабирования — левый верхний угол */
-    width: calc(1000px * (100vw / 1000)); /* Компенсация ширины после масштабирования */
-    margin-left: calc((100% - (1000px * (100vw / 1000))) / 2); /* Центрирование */
+  body {
+    overflow-x: hidden; /* Гарантированно убираем горизонтальный скролл */
   }
 
-  /* Запрещаем переносы везде */
+  .header {
+    transform: scale(0.8); /* Уменьшаем на 20 % */
+    transform-origin: top center; /* Масштабируем от верха по центру */
+    width: 125%; /* Компенсируем масштаб: 100 % / 0.8 = 125 % */
+    margin-left: -12.5%; /* Центрируем: (125 % − 100 %) / 2 = −12.5 % */
+  }
+
+  .header_grid {
+    padding-top: 24px; /* 30px × 0.8 */
+    gap: 8px; /* 10px × 0.8 */
+  }
+
+  .block {
+    min-width: unset; /* Сбрасываем ограничения */
+  }
+
+  .width {
+    width: 152px; /* 190px × 0.8 */
+    font-size: 12.8px; /* 16px × 0.8 */
+    margin-right: 8px; /* 10px × 0.8 */
+    padding: 6.4px 4px; /* 8px 5px × 0.8 */
+  }
+
+  .block-expen {
+    height: 194.4px; /* 243px × 0.8 */
+  }
+
+  .block-result {
+    height: 22.4px; /* 28px × 0.8 */
+  }
+
+  .block-prt {
+    gap: 4px; /* 5px × 0.8 */
+  }
+
+  .whattheamout {
+    font-size: 11.2px; /* 14px × 0.8 */
+    gap: 4px; /* 5px × 0.8 */
+  }
+
+  .forwhat {
+    width: 200px; /* 250px × 0.8 */
+    padding: 4px; /* 5px × 0.8 */
+  }
+
+  .percent {
+    width: 40px; /* 50px × 0.8 */
+    padding: 4px; /* 5px × 0.8 */
+  }
+
+  .result-sum {
+    width: 80px; /* 100px × 0.8 */
+    padding: 4px; /* 5px × 0.8 */
+  }
+
+  /* Гарантируем отсутствие переносов и скролла */
   .whattheamout,
   .forwhat,
   .percent,
-  .result-sum,
-  .title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .result-sum {
+    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow: hidden; /* Скрываем выходящий за границы контент */
+    text-overflow: ellipsis; /* Добавляем многоточие при обрезке */
   }
 }
+
+
 
 
 
